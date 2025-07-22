@@ -9,8 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -30,25 +28,17 @@ public class Participante {
 	@ManyToMany(mappedBy = "participantes")
 	private Set<Atividade> atividades = new HashSet<>();
 	
-	@ManyToMany
-	@JoinTable(name = "tb_atividade_participante",
-	joinColumns = @JoinColumn(name = "atividade_id"),
-	inverseJoinColumns = @JoinColumn(name = "participante_id"))
-	private Set<Participante> participantes = new HashSet<>();
-
 	public Participante() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Participante(Integer id, String nome, String email, Set<Atividade> atividades,
-			Set<Participante> participantes) {
+	public Participante(Integer id, String nome, String email, Set<Atividade> atividades) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.atividades = atividades;
-		this.participantes = participantes;
 	}
 
 	public Integer getId() {

@@ -35,12 +35,15 @@ public class Bloco {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bloco(Integer id, Instant inicio, Instant fim) {
+	public Bloco(Integer id, Instant inicio, Instant fim, Atividade atividade) {
 		super();
 		this.id = id;
 		this.inicio = inicio;
 		this.fim = fim;
+		this.atividade = atividade;
 	}
+
+	
 
 	public Integer getId() {
 		return id;
@@ -64,6 +67,14 @@ public class Bloco {
 
 	public void setFim(Instant fim) {
 		this.fim = fim;
+	}
+
+	public Atividade getAtividade() {
+		return atividade;
+	}
+
+	public void setAtividade(Atividade atividade) {
+		this.atividade = atividade;
 	}
 
 	@Override
